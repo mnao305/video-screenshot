@@ -1,0 +1,19 @@
+{
+  "name": "video-screenshot",
+  "description": "Take screenshots of videos such as YouTube and Nico Nico Douga",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "icons": {
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  },
+  "browser_action": {
+    "default_title": "video-screenshot",
+    "default_popup": "popup/index.html"
+  },
+  "options_ui": {
+    "page": "options/index.html",
+    "chrome_style": true
+  },
+  "permissions": []
+}
