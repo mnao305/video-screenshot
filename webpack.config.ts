@@ -6,7 +6,7 @@ import { version } from './package.json'
 const config: ConfigurationFactory = () => {
   return {
     mode: process.env.NODE_ENV as 'development' | 'production' | 'none' | undefined,
-    context: path.join(__dirname, '/src'),
+    context: path.join(__dirname, 'src'),
     entry: {
       popup: './popup/index.ts',
       options: './options/index.ts',
