@@ -1,7 +1,7 @@
 {
   "name": "video-screenshot",
   "version": "0.0.1",
-  "description": "Take screenshots of videos such as YouTube and Nico Nico Douga",
+  "description": "Take screenshots of videos such as YouTube and other video sites",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
