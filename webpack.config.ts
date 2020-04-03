@@ -11,7 +11,8 @@ const config: ConfigurationFactory = () => {
     entry: {
       popup: './popup/index.ts',
       options: './options/index.ts',
-      background: './background/index.ts'
+      background: './background/index.ts',
+      content: './content/index.ts'
     },
     output: {
       path: path.join(__dirname, 'dist'),
