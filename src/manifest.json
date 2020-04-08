@@ -1,6 +1,6 @@
 {
   "name": "video-screenshot",
-  "description": "Take screenshots of videos such as YouTube and Nico Nico Douga",
+  "description": "Take screenshots of videos such as YouTube and other video sites",
   "version": null,
   "manifest_version": 2,
   "icons": {
