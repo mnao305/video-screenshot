@@ -5,6 +5,7 @@ import { name, version } from '../package.json'
 
 /**
  * 吐き出されるzipファイルを置くディレクトリを作る
+ * @param {string} dir 生成されるディレクトリ名
  */
 const createDir = (dir: string): void => {
   if (!fs.existsSync(dir)) {
@@ -14,6 +15,9 @@ const createDir = (dir: string): void => {
 
 /**
  * zip化する
+ * @param {string} src zip化するディレクトリ
+ * @param {string} output zipファイルが置かれるディレクトリ
+ * @param {string} zipFilename 生成するzipファイルの名前
  */
 const makeZip = (src: string, output: string, zipFilename: string): void => {
   const archive = archiver('zip', { zlib: { level: 9 } })
