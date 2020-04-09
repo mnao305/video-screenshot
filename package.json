@@ -9,7 +9,8 @@
     "watch": "webpack --watch",
     "commit": "git-cz",
     "release": "standard-version",
-    "zip": "ts-node scripts/zip.ts"
+    "zip": "ts-node scripts/zip.ts",
+    "lint": "eslint --ext .ts,.js --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
