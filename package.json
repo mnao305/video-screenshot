@@ -1,6 +1,6 @@
 {
   "name": "video-screenshot",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Take screenshots of videos such as YouTube and other video sites",
   "main": "index.js",
   "scripts": {
