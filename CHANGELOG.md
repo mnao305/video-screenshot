@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/mnao305/Video-Screenshot/compare/v1.0.0...v1.1.0) (2020-04-11)
+
+
+### Features
+
+* 動画本来の解像度でスクショを撮れるようにする ([a009baa](https://github.com/mnao305/Video-Screenshot/commit/a009baa6621f6134c7a497e6853772ce458c9f3c)), closes [#12](https://github.com/mnao305/Video-Screenshot/issues/12)
+
+
+### Others
+
+* browser actionは今は使わないので消しておく ([ac48202](https://github.com/mnao305/Video-Screenshot/commit/ac482023ff16d8640bae0e4e01323a68d37e37ae))
+
 ## [1.0.0](https://github.com/mnao305/Video-Screenshot/compare/v0.0.1...v1.0.0) (2020-04-11)
 
 
