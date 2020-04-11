@@ -6,8 +6,8 @@ const screenshot = (): void => {
   console.log(video)
   if (video != null) {
     const canvas = document.createElement('canvas')
-    canvas.width = video.clientWidth
-    canvas.height = video.clientHeight
+    canvas.width = video.videoWidth
+    canvas.height = video.videoHeight
     const context = canvas.getContext('2d')
     if (context == null) {
       alert('Unable to save.')
