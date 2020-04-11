@@ -13,7 +13,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
       "js": ["content/index.js"]
     }
   ],
@@ -24,7 +27,6 @@
     "persistent": false
   },
   "permissions": [
-    "contextMenus",
-    "<all_urls>"
+    "contextMenus"
   ]
 }
