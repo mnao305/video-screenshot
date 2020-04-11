@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/mnao305/Video-Screenshot/compare/v1.1.0...v1.1.1) (2020-04-11)
+
+
+### Others
+
+* 不要だった権限の削除 ([9d1203a](https://github.com/mnao305/Video-Screenshot/commit/9d1203a7a2ee9c497c518d4dda784bf2f1658638))
+
 ## [1.1.0](https://github.com/mnao305/Video-Screenshot/compare/v1.0.0...v1.1.0) (2020-04-11)
 
 
