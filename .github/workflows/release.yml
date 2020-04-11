@@ -1,11 +1,11 @@
-name: CI
+name: release
 
 on:
-  release:
-    types: [created]
-
+  push:
+    tags:
+      - '*'
 jobs:
-  lint-build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -18,9 +18,21 @@ jobs:
         run: npm run build
       - name: npm run zip
         run: npm run zip
-      - name: Upload files to GitHub release
-        uses: skx/github-action-publish-binaries@master
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: 'dist_zip/*.zip'
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload files to GitHub release
+        uses: svenstaro/upload-release-action@v1-release
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist_zip/*
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
