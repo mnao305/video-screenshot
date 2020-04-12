@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/mnao305/Video-Screenshot/compare/v1.1.3...v1.2.0) (2020-04-12)
+
+
+### Features
+
+* suffixを現在時間から動画の再生位置に変更 ([555bd99](https://github.com/mnao305/Video-Screenshot/commit/555bd9977619fa682f1773acc443dfd7f92954c1)), closes [#13](https://github.com/mnao305/Video-Screenshot/issues/13)
+
+
+### Code Refactoring
+
+* 不要なログ出力の削除 ([3983624](https://github.com/mnao305/Video-Screenshot/commit/39836240dacbd4ca7d18d66d90d8c1d8b97769b9))
+
 ### [1.1.3](https://github.com/mnao305/Video-Screenshot/compare/v1.1.2...v1.1.3) (2020-04-11)
 
 
