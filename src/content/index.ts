@@ -15,7 +15,7 @@ const screenshot = (): void => {
     const image = new Image()
     image.src = canvas.toDataURL('image/png')
     const a = document.createElement('a')
-    a.download = `${document.title}\\${new Date().toISOString()}.png`
+    a.download = `${document.title}\\${Math.round(video.currentTime)}.png`
     a.target = '_blank'
     a.href = image.src
     a.click()
