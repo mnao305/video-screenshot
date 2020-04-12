@@ -1,9 +1,7 @@
 import { browser } from 'webextension-polyfill-ts'
 
 const screenshot = (): void => {
-  console.log(document)
   const video = document.querySelector('video')
-  console.log(video)
   if (video != null) {
     const canvas = document.createElement('canvas')
     canvas.width = video.videoWidth
