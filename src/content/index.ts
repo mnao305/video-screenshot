@@ -30,3 +30,33 @@ browser.runtime.onMessage.addListener((message, sender) => {
     screenshot()
   }
 })
+
+// ショートカットキーでスクリーンショットを撮る
+let keyQFlg = false
+let keyCtrlFlg = false
+document.onkeydown = (e) => {
+  console.log(e.keyCode)
+
+  // Ctrl key
+  if (!keyCtrlFlg && e.keyCode === 17) {
+    keyCtrlFlg = true
+  }
+  // Q key
+  if (!keyQFlg && e.keyCode === 81) {
+    keyQFlg = true
+  }
+
+  if (keyQFlg && keyCtrlFlg) {
+    screenshot()
+  }
+}
+document.onkeyup = (e) => {
+  // Ctrl key
+  if (keyCtrlFlg && e.keyCode === 17) {
+    keyCtrlFlg = false
+  }
+  // Q key
+  if (keyQFlg && e.keyCode === 81) {
+    keyQFlg = false
+  }
+}
