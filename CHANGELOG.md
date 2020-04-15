@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/mnao305/Video-Screenshot/compare/v1.2.0...v1.3.0) (2020-04-15)
+
+
+### Features
+
+* オプションからショートカットキーのオンオフできるようになった ([7c35446](https://github.com/mnao305/Video-Screenshot/commit/7c35446f70cbcd0cbb74b41bf9f729acf3a3ed22))
+* ショートカットキーでスクリーンショットを撮れるようになった ([6fa82b0](https://github.com/mnao305/Video-Screenshot/commit/6fa82b02b1c15edb222e1e48c0928f6a37c9d25a)), closes [#3](https://github.com/mnao305/Video-Screenshot/issues/3)
+
+
+### Code Refactoring
+
+* 不要なログ出力の削除 ([7c14fac](https://github.com/mnao305/Video-Screenshot/commit/7c14fac1c7f23893032928949d943e20f074a002))
+
 ## [1.2.0](https://github.com/mnao305/Video-Screenshot/compare/v1.1.3...v1.2.0) (2020-04-12)
 
 
