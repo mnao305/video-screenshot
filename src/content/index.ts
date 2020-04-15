@@ -36,8 +36,6 @@ browser.runtime.onMessage.addListener((message, sender) => {
 let keyQFlg = false
 let keyCtrlFlg = false
 document.onkeydown = async (e) => {
-  console.log(e.keyCode)
-
   // Ctrl key
   if (!keyCtrlFlg && e.keyCode === 17) {
     keyCtrlFlg = true
