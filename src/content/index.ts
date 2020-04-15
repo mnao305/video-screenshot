@@ -1,4 +1,5 @@
 import { browser } from 'webextension-polyfill-ts'
+import { Options } from '../options'
 
 const screenshot = (): void => {
   const video = document.querySelector('video')
@@ -34,7 +35,7 @@ browser.runtime.onMessage.addListener((message, sender) => {
 // ショートカットキーでスクリーンショットを撮る
 let keyQFlg = false
 let keyCtrlFlg = false
-document.onkeydown = (e) => {
+document.onkeydown = async (e) => {
   console.log(e.keyCode)
 
   // Ctrl key
@@ -47,6 +48,8 @@ document.onkeydown = (e) => {
   }
 
   if (keyQFlg && keyCtrlFlg) {
+    const { useShortcut } = await browser.storage.local.get({ useShortcut: true }) as Options
+    if (!useShortcut) return
     screenshot()
   }
 }
