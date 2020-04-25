@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/mnao305/Video-Screenshot/compare/v1.3.0...v1.4.0) (2020-04-25)
+
+
+### Features
+
+* sanitize-filenameを導入してファイル名のサニタイズ処理 ([5d9b574](https://github.com/mnao305/Video-Screenshot/commit/5d9b574c8ff4e775e35fe90ca97d6a76ac1f7e6f))
+* タイトルと時間はアンスコでつなげるように変更 ([d037c4e](https://github.com/mnao305/Video-Screenshot/commit/d037c4e01dd3c61803a77f43b53b5ac5d5fb60c0))
+
+
+### Build System
+
+* fix webpack config ([9aed355](https://github.com/mnao305/Video-Screenshot/commit/9aed355619897806bcc3ea1705fd72db7d08cb37))
+
 ## [1.3.0](https://github.com/mnao305/Video-Screenshot/compare/v1.2.0...v1.3.0) (2020-04-15)
 
 
