@@ -1,5 +1,6 @@
 import { browser } from 'webextension-polyfill-ts'
 import { Options } from '../options'
+import sanitize from 'sanitize-filename'
 
 const screenshot = (): void => {
   const video = document.querySelector('video')
@@ -16,7 +17,7 @@ const screenshot = (): void => {
     const image = new Image()
     image.src = canvas.toDataURL('image/png')
     const a = document.createElement('a')
-    a.download = `${document.title}\\${Math.round(video.currentTime)}.png`
+    a.download = sanitize(`${document.title}\\${Math.round(video.currentTime)}.png`)
     a.target = '_blank'
     a.href = image.src
     a.click()

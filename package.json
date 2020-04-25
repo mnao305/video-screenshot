@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "commitizen": "^4.0.3",
+    "sanitize-filename": "^1.6.3",
     "webextension-polyfill-ts": "^0.14.0"
   },
   "config": {
