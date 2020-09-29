@@ -2,6 +2,9 @@ import { browser } from 'webextension-polyfill-ts'
 import { Options } from '../options'
 import sanitize from 'sanitize-filename'
 
+let keyQFlg = false
+let keyCtrlFlg = false
+
 const screenshot = (): void => {
   const video = document.querySelector('video')
   if (video != null) {
@@ -11,6 +14,8 @@ const screenshot = (): void => {
     const context = canvas.getContext('2d')
     if (context == null) {
       alert('Unable to save.')
+      keyQFlg = false
+      keyCtrlFlg = false
       return
     }
     context.drawImage(video, 0, 0, canvas.width, canvas.height)
@@ -23,6 +28,8 @@ const screenshot = (): void => {
     a.click()
   } else {
     alert('There is no video tag.')
+    keyQFlg = false
+    keyCtrlFlg = false
   }
 }
 
@@ -34,15 +41,13 @@ browser.runtime.onMessage.addListener((message, sender) => {
 })
 
 // ショートカットキーでスクリーンショットを撮る
-let keyQFlg = false
-let keyCtrlFlg = false
 document.onkeydown = async (e) => {
   // Ctrl key
-  if (!keyCtrlFlg && e.keyCode === 17) {
+  if (!keyCtrlFlg && e.key === 'Control') {
     keyCtrlFlg = true
   }
   // Q key
-  if (!keyQFlg && e.keyCode === 81) {
+  if (!keyQFlg && e.key === 'q') {
     keyQFlg = true
   }
 
@@ -54,11 +59,11 @@ document.onkeydown = async (e) => {
 }
 document.onkeyup = (e) => {
   // Ctrl key
-  if (keyCtrlFlg && e.keyCode === 17) {
+  if (keyCtrlFlg && e.key === 'Control') {
     keyCtrlFlg = false
   }
   // Q key
-  if (keyQFlg && e.keyCode === 81) {
+  if (keyQFlg && e.key === 'q') {
     keyQFlg = false
   }
 }
