@@ -5,7 +5,7 @@ import sanitize from 'sanitize-filename'
 let keyQFlg = false
 let keyCtrlFlg = false
 
-const screenshot = (): void => {
+const screenshot = async (): Promise<void> => {
   const video = document.querySelector('video')
   if (video != null) {
     const canvas = document.createElement('canvas')
@@ -20,9 +20,10 @@ const screenshot = (): void => {
     }
     context.drawImage(video, 0, 0, canvas.width, canvas.height)
     const image = new Image()
-    image.src = canvas.toDataURL('image/png')
+    const { fileType } = await browser.storage.local.get({ fileType: 'png' }) as Options
+    image.src = fileType === 'png' ? canvas.toDataURL('image/png') : canvas.toDataURL('image/jpeg')
     const a = document.createElement('a')
-    a.download = sanitize(`${document.title}_${Math.round(video.currentTime)}.png`)
+    a.download = sanitize(`${document.title}_${Math.round(video.currentTime * 10)}.${fileType}`)
     a.target = '_blank'
     a.href = image.src
     a.click()
@@ -34,9 +35,9 @@ const screenshot = (): void => {
 }
 
 // メッセージ受信でスクリーンショットを撮る
-browser.runtime.onMessage.addListener((message, sender) => {
+browser.runtime.onMessage.addListener(async (message, sender) => {
   if (message.text === 'screenshot') {
-    screenshot()
+    await screenshot()
   }
 })
 
@@ -54,7 +55,7 @@ document.onkeydown = async (e) => {
   if (keyQFlg && keyCtrlFlg) {
     const { useShortcut } = await browser.storage.local.get({ useShortcut: true }) as Options
     if (!useShortcut) return
-    screenshot()
+    await screenshot()
   }
 }
 document.onkeyup = (e) => {
