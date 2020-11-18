@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/mnao305/Video-Screenshot/compare/v1.4.1...v1.5.0) (2020-11-18)
+
+
+### Features
+
+* jpg対応 ([6cafb7e](https://github.com/mnao305/Video-Screenshot/commit/6cafb7ea48893cb57609324085146352e9f0c34e)), closes [#22](https://github.com/mnao305/Video-Screenshot/issues/22)
+
+
+### Code Refactoring
+
+* オプションはフォームタグを使う感じに変更 ([4959253](https://github.com/mnao305/Video-Screenshot/commit/4959253c80e94263fa43b0e991b84449a95ddbb6))
+
 ### [1.4.1](https://github.com/mnao305/Video-Screenshot/compare/v1.4.0...v1.4.1) (2020-09-29)
 
 
