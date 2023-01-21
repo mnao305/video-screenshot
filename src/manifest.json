@@ -29,5 +29,11 @@
   "permissions": [
     "contextMenus",
     "storage"
-  ]
+  ],
+  "commands": {
+    "_execute_action": {},
+    "shoot": {
+      "description": "Take a screenshot"
+    }
+  }
 }
