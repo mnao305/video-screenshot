@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/mnao305/Video-Screenshot/compare/v1.5.0...v1.6.0) (2023-01-29)
+
+
+### Features
+
+* 撮影ショートカットキーをブラウザの設定で設定できるように変更 ([#28](https://github.com/mnao305/Video-Screenshot/issues/28)) ([cff9f53](https://github.com/mnao305/Video-Screenshot/commit/cff9f532e69351315527411f0dbc46d5045a1593))
+
+
+### Code Refactoring
+
+* lintエラーの修正 ([c9fe654](https://github.com/mnao305/Video-Screenshot/commit/c9fe6540c51d6ff34833f443df38ddea5f2cc57f))
+
 ## [1.5.0](https://github.com/mnao305/Video-Screenshot/compare/v1.4.1...v1.5.0) (2020-11-18)
 
 
