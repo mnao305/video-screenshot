@@ -21,10 +21,10 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 browser.commands.onCommand.addListener((command) => {
   browser.tabs.query({ currentWindow: true, active: true }).then(tabs => {
     const tab = tabs[0]
-    if (command === 'shoot') {
+    if (command === 'shoot' && tab.id != null) {
       // コンテンツスクリプト側にメッセージを送信
-      browser.tabs.sendMessage(tab.id!, { text: 'screenshot', tabID: tab.id }).then(v => {
+      browser.tabs.sendMessage(tab.id, { text: 'screenshot', tabID: tab.id }).then(v => {
       }).catch(err => { console.error(err) })
     }
-  })
+  }).catch(err => { console.error(err) })
 })
