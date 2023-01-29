@@ -29,5 +29,15 @@
   "permissions": [
     "contextMenus",
     "storage"
-  ]
+  ],
+  "commands": {
+    "_execute_action": {},
+    "shoot": {
+      "description": "Take a screenshot",
+      "suggested_key": {
+        "default": "Ctrl+Q",
+        "mac": "MacCtrl+Q"
+      }
+    }
+  }
 }
