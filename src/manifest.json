@@ -2,14 +2,14 @@
   "name": "video-screenshot",
   "description": "Take screenshots of videos such as YouTube and other video sites",
   "version": null,
-  "manifest_version": 2,
+  "manifest_version": 3,
   "icons": {
     "48": "icons/icon_48.png",
     "128": "icons/icon_128.png"
   },
   "options_ui": {
     "page": "options/index.html",
-    "chrome_style": true
+    "browser_style": true
   },
   "content_scripts": [
     {
@@ -20,18 +20,15 @@
       "js": ["content/index.js"]
     }
   ],
-  "background":{
-    "scripts":[
-      "background/index.js"
-    ],
-    "persistent": false
+  "background": {
+    "service_worker": "background/index.js"
   },
   "permissions": [
     "contextMenus",
     "storage"
   ],
+  "action": {},
   "commands": {
-    "_execute_action": {},
     "shoot": {
       "description": "Take a screenshot",
       "suggested_key": {
