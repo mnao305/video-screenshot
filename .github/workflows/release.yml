@@ -37,7 +37,7 @@ jobs:
           overwrite: true
           file_glob: true
       - name: Upload & release
-        uses: mnao305/chrome-extension-upload@1.1.0
+        uses: mnao305/chrome-extension-upload@5.0.0
         with:
           file-path: dist_zip/*.zip
           extension-id: okbncahhjihmnjpiadepoioodfnfanjk
