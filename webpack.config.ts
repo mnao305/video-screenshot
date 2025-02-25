@@ -1,9 +1,8 @@
-import { ConfigurationFactory } from 'webpack'
 import path from 'path'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import { version } from './package.json'
 
-const config: ConfigurationFactory = (_, args) => {
+const config = (env: any, args: any): any => {
   return {
     devtool: args.mode === 'production' ? false : 'inline-source-map',
     context: path.join(__dirname, 'src'),
