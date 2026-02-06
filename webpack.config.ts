@@ -7,13 +7,13 @@ const config = (env: any, args: any): any => {
     devtool: args.mode === 'production' ? false : 'inline-source-map',
     context: path.join(__dirname, 'src'),
     entry: {
-      popup: './popup/index.ts',
       options: './options/index.ts',
       background: './background/index.ts',
       content: './content/index.ts'
     },
     output: {
       path: path.join(__dirname, 'dist'),
+      clean: true,
       filename: '[name]/index.js'
     },
     module: {
@@ -31,8 +31,6 @@ const config = (env: any, args: any): any => {
     plugins: [
       new CopyWebpackPlugin([
         { from: 'icons', to: 'icons' },
-        { from: 'popup/index.html', to: 'popup/index.html' },
-        { from: 'popup/style.css', to: 'popup/style.css' },
         { from: 'options/index.html', to: 'options/index.html' },
         { from: 'options/style.css', to: 'options/style.css' },
         {

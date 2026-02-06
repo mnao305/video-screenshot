@@ -27,7 +27,6 @@
     "contextMenus",
     "storage"
   ],
-  "action": {},
   "commands": {
     "shoot": {
       "description": "Take a screenshot",
