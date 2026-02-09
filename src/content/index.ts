@@ -1,4 +1,5 @@
 import { browser } from 'webextension-polyfill-ts'
+import { Options } from '../options'
 import sanitize from 'sanitize-filename'
 
 interface DownloadScreenshotMessage {
@@ -19,10 +20,11 @@ const screenshot = async (): Promise<void> => {
       return
     }
     context.drawImage(video, 0, 0, canvas.width, canvas.height)
+    const { fileType } = await browser.storage.local.get({ fileType: 'png' }) as Options
     const message: DownloadScreenshotMessage = {
       text: 'download-screenshot',
-      url: canvas.toDataURL('image/png'),
-      filename: sanitize(`${document.title}_${Math.round(video.currentTime * 10)}.png`)
+      url: fileType === 'png' ? canvas.toDataURL('image/png') : canvas.toDataURL('image/jpeg'),
+      filename: sanitize(`${document.title}_${Math.round(video.currentTime * 10)}.${fileType}`)
     }
     try {
       // 背景スクリプト側にダウンロード処理を依頼する
