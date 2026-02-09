@@ -1,6 +1,11 @@
 import { browser } from 'webextension-polyfill-ts'
-import { Options } from '../options'
 import sanitize from 'sanitize-filename'
+
+interface DownloadScreenshotMessage {
+  text: 'download-screenshot'
+  url: string
+  filename: string
+}
 
 const screenshot = async (): Promise<void> => {
   const video = document.querySelector('video')
@@ -14,14 +19,18 @@ const screenshot = async (): Promise<void> => {
       return
     }
     context.drawImage(video, 0, 0, canvas.width, canvas.height)
-    const image = new Image()
-    const { fileType } = await browser.storage.local.get({ fileType: 'png' }) as Options
-    image.src = fileType === 'png' ? canvas.toDataURL('image/png') : canvas.toDataURL('image/jpeg')
-    const a = document.createElement('a')
-    a.download = sanitize(`${document.title}_${Math.round(video.currentTime * 10)}.${fileType}`)
-    a.target = '_blank'
-    a.href = image.src
-    a.click()
+    const message: DownloadScreenshotMessage = {
+      text: 'download-screenshot',
+      url: canvas.toDataURL('image/png'),
+      filename: sanitize(`${document.title}_${Math.round(video.currentTime * 10)}.png`)
+    }
+    try {
+      // 背景スクリプト側にダウンロード処理を依頼する
+      await browser.runtime.sendMessage(message)
+    } catch (error) {
+      console.error(error)
+      alert('Unable to save.')
+    }
   } else {
     alert('There is no video tag.')
   }
