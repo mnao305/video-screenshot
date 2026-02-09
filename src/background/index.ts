@@ -1,4 +1,37 @@
 import { browser } from 'webextension-polyfill-ts'
+import { Options } from '../options'
+
+interface DownloadScreenshotMessage {
+  text: 'download-screenshot'
+  url: string
+  filename: string
+}
+
+type DownloadDirectoryOption = Pick<Options, 'downloadDirectory'>
+
+// ダウンロード用メッセージかどうかを判定する
+const isDownloadScreenshotMessage = (message: unknown): message is DownloadScreenshotMessage => {
+  if (typeof message !== 'object' || message == null) return false
+  const candidate = message as Record<string, unknown>
+  return candidate.text === 'download-screenshot' &&
+    typeof candidate.url === 'string' &&
+    typeof candidate.filename === 'string'
+}
+
+const normalizeDownloadDirectory = (downloadDirectory: string): string => {
+  return downloadDirectory
+    .replace(/\\/g, '/')
+    .split('/')
+    .map(segment => segment.trim())
+    .filter(segment => segment !== '' && segment !== '.' && segment !== '..')
+    .join('/')
+}
+
+const buildDownloadFilename = (downloadDirectory: string, filename: string): string => {
+  const normalizedDownloadDirectory = normalizeDownloadDirectory(downloadDirectory)
+  if (normalizedDownloadDirectory === '') return filename
+  return `${normalizedDownloadDirectory}/${filename}`
+}
 
 // 拡張機能インストール時にコンテキストメニューを設定する
 browser.runtime.onInstalled.addListener(() => {
@@ -27,4 +60,21 @@ browser.commands.onCommand.addListener((command) => {
       }).catch(err => { console.error(err) })
     }
   }).catch(err => { console.error(err) })
+})
+
+// コンテンツスクリプトから受け取った画像を保存する
+browser.runtime.onMessage.addListener(async (message) => {
+  if (!isDownloadScreenshotMessage(message)) return
+  const option = await browser.storage.local.get({ downloadDirectory: '' }) as DownloadDirectoryOption
+  const { downloadDirectory } = option
+  try {
+    return await browser.downloads.download({
+      url: message.url,
+      filename: buildDownloadFilename(downloadDirectory, message.filename),
+      saveAs: false
+    })
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
 })

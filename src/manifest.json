@@ -25,7 +25,8 @@
   },
   "permissions": [
     "contextMenus",
-    "storage"
+    "storage",
+    "downloads"
   ],
   "commands": {
     "shoot": {

@@ -1,0 +1,19 @@
+#options ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#options li {
+  margin: 0 0 12px;
+}
+
+#download-directory {
+  min-width: 240px;
+}
+
+.note {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
