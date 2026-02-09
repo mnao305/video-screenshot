@@ -27,7 +27,7 @@ const screenshot = async (): Promise<void> => {
       filename: sanitize(`${document.title}_${Math.round(video.currentTime * 10)}.${fileType}`)
     }
     try {
-      // 背景スクリプト側にダウンロード処理を依頼する
+      // バックグラウンドスクリプトにダウンロード処理を依頼する
       await browser.runtime.sendMessage(message)
     } catch (error) {
       console.error(error)
