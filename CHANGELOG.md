@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/mnao305/video-screenshot/compare/v2.0.3...v2.1.0) (2026-02-09)
+
+
+### Features
+
+* ダウンロードAPI対応と保存先設定を追加 ([#39](https://github.com/mnao305/video-screenshot/issues/39)) ([18d0a1e](https://github.com/mnao305/video-screenshot/commit/18d0a1e400b5b6171bfbbfe0570bac0931bb6ac5))
+
+
+### Bug Fixes
+
+* バックグラウンドスクリプト表記にコメントを修正 ([#41](https://github.com/mnao305/video-screenshot/issues/41)) ([041ae39](https://github.com/mnao305/video-screenshot/commit/041ae3923fa616a76ecd23f1ec394648c70f9c14))
+
 ## [1.6.0](https://github.com/mnao305/Video-Screenshot/compare/v1.5.0...v1.6.0) (2023-01-29)
 
 
