@@ -63,18 +63,18 @@ browser.commands.onCommand.addListener((command) => {
 })
 
 // コンテンツスクリプトから受け取った画像を保存する
-browser.runtime.onMessage.addListener((message) => {
+browser.runtime.onMessage.addListener(async (message) => {
   if (!isDownloadScreenshotMessage(message)) return
-  const saveScreenshot = async (): Promise<void> => {
-    const option = await browser.storage.local.get({ downloadDirectory: '' }) as DownloadDirectoryOption
-    const { downloadDirectory } = option
-    await browser.downloads.download({
+  const option = await browser.storage.local.get({ downloadDirectory: '' }) as DownloadDirectoryOption
+  const { downloadDirectory } = option
+  try {
+    return await browser.downloads.download({
       url: message.url,
       filename: buildDownloadFilename(downloadDirectory, message.filename),
       saveAs: false
     })
-  }
-  saveScreenshot().catch(err => {
+  } catch (err) {
     console.error(err)
-  })
+    throw err
+  }
 })
